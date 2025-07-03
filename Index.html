@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marilexi Araujo Vega - Lululemon Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d7);
+            border-radius: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ff6b9d, #ffc3d7);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: #ff6b9d;
+            transform: translateY(-5px);
+        }
+
+        .value-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6b9d;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #ff6b9d;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .experience-duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b9d;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d7);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b9d, #ffc3d7);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2::after {
+            background: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #ff6b9d;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Marilexi Araujo Vega</h1>
+            <p>Passionate Retail Professional | Wellness Advocate | Community Builder</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>917-995-5328</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>MARILEXI.ARAUJOVEGA01@guttmanmail.cuny.edu</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Mount Vernon, NY</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Why Lululemon?</h2>
+            <div class="highlight-box">
+                <h3>Sweat Life Philosophy</h3>
+                <p>I believe in the transformative power of wellness, mindfulness, and living actively. As someone who plays badminton and values fitness, I understand how the right gear can enhance both performance and confidence. I'm excited to help others on their wellness journey while being part of a community that celebrates personal growth and authentic connections.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="experience-title">Sales Associate</div>
+                <div class="experience-company">H&M</div>
+                <div class="experience-duration">8 months experience</div>
+                <ul class="experience-list">
+                    <li>Provided excellent customer service to diverse clientele in fast-paced retail environment</li>
+                    <li>Assisted customers with product selection, sizing, and styling recommendations</li>
+                    <li>Maintained organized store displays and inventory management</li>
+                    <li>Processed transactions and handled customer inquiries efficiently with enthusiasm for register operations</li>
+                    <li>Developed strong knowledge of fashion trends and clothing industry practices</li>
+                    <li>Experience with activewear and performance clothing recommendations</li>
+                    <li>Built genuine connections with customers through friendly conversation and empathetic service</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core Values & Alignment</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>🌟 Wellness Advocate</h4>
+                    <p>Active lifestyle through badminton and fitness, understanding the importance of mind-body connection</p>
+                </div>
+                <div class="value-card">
+                    <h4>💪 Performance Focus</h4>
+                    <p>Knowledge of athletic wear and performance fabrics from personal experience and retail background</p>
+                </div>
+                <div class="value-card">
+                    <h4>🤝 Community Builder</h4>
+                    <p>Love for genuine conversation and building authentic connections with customers</p>
+                </div>
+                <div class="value-card">
+                    <h4>🚀 Growth Mindset</h4>
+                    <p>Fast learner committed to personal development and continuous improvement</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Skills & Strengths</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Excellent Customer Service</div>
+                <div class="skill-tag">Fast Learner</div>
+                <div class="skill-tag">Athletic Wear Knowledge</div>
+                <div class="skill-tag">Empathetic Communication</div>
+                <div class="skill-tag">Team Collaboration</div>
+                <div class="skill-tag">Register Operations</div>
+                <div class="skill-tag">Sizing Expertise</div>
+                <div class="skill-tag">Problem Solving</div>
+                <div class="skill-tag">Wellness Advocacy</div>
+                <div class="skill-tag">Inclusive Environment</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education & Interests</h2>
+            <div class="highlight-box">
+                <h3>Academic Background</h3>
+                <p><strong>Associate of Arts in Science and Mathematics</strong><br>
+                Guttman Community College, CUNY<br>
+                Expected Graduation: Spring 2026</p>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.1rem;">
+                <strong>Personal Interests:</strong> Sports (Badminton), Fitness & Wellness, Mindfulness & Personal Growth, Art, Music, Reading/Writing, Helping Others
+            </p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Sweat Life Together</h2>
+            <p>I'm excited to bring my passion for wellness, retail expertise, and genuine care for others to the Lululemon team. Let's create transformative experiences that build meaningful connections within our community.</p>
+            <a href="mailto:MARILEXI.ARAUJOVEGA01@guttmanmail.cuny.edu" class="cta-button">Let's Connect!</a>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
